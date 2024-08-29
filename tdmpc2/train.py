@@ -1,6 +1,4 @@
 import os
-os.environ['MUJOCO_GL'] = 'egl'
-os.environ['LAZY_LEGACY_OP'] = '0'
 import warnings
 warnings.filterwarnings('ignore')
 import torch
@@ -40,7 +38,7 @@ def train(cfg: dict):
 		$ python train.py task=dog-run steps=7000000
 	```
 	"""
-	assert torch.cuda.is_available()
+	# assert torch.cuda.is_available()
 	assert cfg.steps > 0, 'Must train for at least 1 step.'
 	cfg = parse_cfg(cfg)
 	set_seed(cfg.seed)
